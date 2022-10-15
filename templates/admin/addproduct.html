@@ -1,0 +1,53 @@
+<script>
+    $(document).ready(function(){
+        listProduct()
+    })
+    function listProduct(){
+    
+        url = '/listProduct'
+        $.ajax({
+            url : url,
+            beforeSend:function(){
+                
+            },
+            success:function(result){
+                    $('#listprodctdata').html(result)
+                // setTimeout(editItem(id,fname,lname,email,image,uname,course,date,gender), 1000);
+            },
+            
+        })
+    
+    }
+    </script>
+
+<div class="col-md-12 row">
+    <h1>Add Product</h1>
+
+<div class="col-md-3">
+    <form method="POST"  id="product" enctype="multipart/form-data">
+        {% csrf_token %}
+<div class="col-md-6"><label for="category">Product</label></div>
+<div class="col-md-6 mb-3"><input type="text" id ='product' name="product"></div>
+<div class="col-md-6"><label for="amount">Amount</label></div>
+<div class="col-md-6 mb-3"><input type="text" id ='amount' name="amount"></div>
+<div class="col-md-6 "><label for="category">Category</label></div>
+<div class="col-md-12">
+    <select name="category" class="col-md-12 mb-3  ">
+        <option>slect value</option>
+        {% for c in cat %}
+        <option value="{{c.id}}">{{c.name}}</option>
+        {% empty%}
+        NO Categorys....
+        {% endfor %}
+    </select>
+    
+</div>
+<div class="col-md-6 "><label for="category">Image</label></div>
+<div class="col-md-6"><input type="file" id ='image' name="image"></div>
+<div class="col-md-6 mt-3"><button type="button" class="btn btn-block btn-success" id="add" onclick="productUpload()" >Add</button></div>
+
+</form>
+</div>
+<div class="col-md-9 row" id="listprodctdata">
+</div>
+</div>

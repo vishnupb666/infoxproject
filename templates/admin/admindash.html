@@ -1,0 +1,50 @@
+{% extends 'home.html'%}
+{%block main %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/profile.css'%}">
+        <link rel="stylesheet" href="{% static 'css/style.css'%}">
+        <link rel="stylesheet" href="{% static 'css/admin.css'%}">
+        <script src="{% static 'js/profile.js'%}"></script>
+        <script src="{% static 'js/style.js'%}"></script>
+        <script src="{% static 'js/admin.js'%}"></script>
+       
+    </head>
+    <body>
+        <div class="container-fluid" style="margin-top: 100px;">
+            
+            <div class="sidebar">
+                <a href="{% url 'admin_dash'%}">Dash Board</a>
+                <a  onclick="addCategory();">Add Category</a>
+                <a onclick="addProduct();">Add Product</a>
+                <a class="active" id="viewUser" onclick="viewUsers();">View Users</a>
+                
+              </div>
+              
+              <!-- Page content -->
+              <div class="content home_div " id="admindash" >
+                {% block dash %}
+                <table>
+                    
+                </table>
+                
+
+                {%endblock%}
+                
+              </div>        
+    
+        </div>
+
+    </body>
+
+</html>
+
+
+
+{%endblock%}

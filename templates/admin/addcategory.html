@@ -1,0 +1,39 @@
+<script>
+    $(document).ready(function(){
+        listCategory();
+    })
+function listCategory(){
+url = '/listCategory'
+$.ajax({
+    url : url,
+    beforeSend:function(){
+        
+    },
+    success:function(result){
+            $('#listdata').html(result)
+        // setTimeout(editItem(id,fname,lname,email,image,uname,course,date,gender), 1000);
+    },
+    
+})
+
+}
+</script>
+<div class="col-md-12 row">
+    <h1>Add Category</h1>
+
+<div class="col-md-3">
+
+    <form  method="POST"  id="ajax" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-md-6"><label for="category">Category</label></div>
+        <div class="col-md-6"><input type="text" id ='category' name="category"></div>
+        <div class="col-md-6"><label for="image">Image</label></div>
+        <div class="col-md-6 mb-3"><input type="file" id ='image' name="image"></div>
+        <div class="col-md-6 mt-3" ><button type="button" class="btn btn-block btn-success" id="submit" onclick="upload()" >Add</button></div>
+  </form>
+
+
+</div>
+<div class="col-md-9 row" id="listdata">
+</div>
+</div>

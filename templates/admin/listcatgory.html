@@ -1,0 +1,17 @@
+<div class="col-md-12 row">
+    <div class="col-md-12 "><h3>List of category</h3></div>
+    {% for item in data %}
+    <div class="col-md-4">
+        <div class="card" style="width:auto; height:400px">
+            <a href=""><img class="card-img-top" style="height:300px ;" src="{{ item.image.url }}"  alt="Card image cap"></a>
+            <div class="card-body">
+              <h5 class="card-title">{{item.name}}</h5>
+              <a href="#" class="btn btn-primary">Delete</a>
+            </div>
+          </div>
+
+    </div>
+    {% empty %}
+    NO category
+    {%endfor%}
+</div>

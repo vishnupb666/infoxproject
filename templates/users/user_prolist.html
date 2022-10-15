@@ -1,0 +1,18 @@
+
+<div class="col-md-12 row">
+    <div class="col-md-12"><h3>List of product</h3></div>
+   {% for c in data %}
+    <div class="col-md-4">
+        <div class="card" style="width:auto; height:400px">
+            <img class="card-img-top" style="height:300px ;" src="{{ c.image.url }}"  alt="Card image cap">
+            <div class="card-body row">
+              <div class="col-md-6"><h5 class="card-title">{{c.name}}</h5></div>
+              <div class="col-md-6"><button class="btn btn-block btn-success" onclick="addtokart('{{c.id}}')">Add to kart</button></div>
+              <div class="col-md-12"> <h5 class="card-title">{{c.amount}}</h5></div>
+            </div>
+          </div>
+
+    </div>
+    {% endfor %}
+
+</div>

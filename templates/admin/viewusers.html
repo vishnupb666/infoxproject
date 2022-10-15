@@ -1,0 +1,39 @@
+<div class="col-md-12">
+    <div class="col-md-12 "><h3>List of category</h3></div>
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Profile Pic</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                {% for item in users %}
+                <tr>
+                    <td>
+                        {{item.username}}
+                    </td>
+                    <td>
+                        {{item.email}}
+                    </td>
+                    <td>
+                        <img class="card-img-top" style="height:100px; width:100px;" src="{{ item.user_ext.image.url }}"  alt="Card image cap">
+                    </td>
+                    <td class="row">
+                        <div class="col-md-6"><button class="btn btn-block btn-success">block</button></div>
+                        <div class="col-md-6"><button class="btn btn-block btn-success" onclick="viewKart('{{item.id}}')">view Kart</button></div>
+                    </td>  
+                </tr>
+                {% empty %}
+                NO users
+                {%endfor%}
+            </tbody>
+
+        </table>
+    </div>
+    
+</div>

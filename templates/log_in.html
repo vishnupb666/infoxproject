@@ -1,0 +1,68 @@
+{% extends 'home.html'%}
+{% block content %}
+<style>
+    
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+body {
+	font-family: 'Roboto', sans-serif;
+}
+.btn-lg {
+	padding: 14px 24px;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	border-radius: 0;
+}
+::placeholder {
+font-size:14px;
+letter-spacing:0.5px;
+}
+.form-control-lg {
+	font-size: 16px;
+	padding: 25px 20px;
+	border-radius: 0;
+}
+.bg-image{
+    background: linear-gradient(rgba(64, 57, 86, 0.5), rgba(64, 57, 86, 0.9)), url(https://images.pexels.com/photos/3021601/pexels-photo-3021601.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=640&w=960);
+    background-size: cover;
+    background-position: center;
+}
+</style>
+
+ 
+
+    <div class="container">
+        <div class="row m-5">
+        <div class="col-lg-9 col-md-12 mx-auto">
+        <div class="row no-gutters align-items-center shadow-lg">
+        <div class="col-5 bg-image d-flex align-items-center" style="min-height:500px;">
+        <div class="p-4 text-center">
+        <h2 class="text-white border-bottom border-white pb-4 font-weight-light" style="letter-spacing:5px;">SPRING SALE</h2>
+        <h3 class="text-white border-bottom border-white pb-4 display-3">40 % OFF</h3>
+        </div>
+        </div>
+        <div class="col-7 text-center">
+        <div class="p-4">
+        <h6 class="mb-4">ENTER USER NAME AND PASSWORD</h6>
+         <form action="log_in" method="post" >
+          {% csrf_token %}
+                  <input class="form-control form-control-lg mb-3" aria-label="text" type="text" name="username" placeholder="enter username">
+                  <input class="form-control form-control-lg mb-3" aria-label="password" name="password" type="password" placeholder="enter password">
+                  <div class="form-group form-check text-muted py-3" style="font-size:14px; font-weight:500;">
+            <input type="checkbox" class="form-check-input">
+            <label class="form-check-label">Yes, I'd like to recieve news and special offers</label>
+          </div>
+                  <input type="submit" class="btn btn-info btn-lg w-100" value="SIGN UP">
+        </form>
+        <h6 class="m-0 pt-5"><a href="" class="text-dark small">NO THANKS</a></h6>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+</div>
+
+  <!-- Pills content -->
+
+{% endblock%}

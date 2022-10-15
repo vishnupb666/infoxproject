@@ -1,0 +1,35 @@
+
+
+<div class="col-md-12" style="margin-top:100px;">
+    <div class="col-md-12 text-center ">Your order</div>
+    
+    <div class="col-md-8">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                <th>Product Name</th>
+                <th>Amount</th>
+                <th>qty</th>
+                <th>image</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for kart_item in kart_detail %}
+                <tr>
+                    <td>{{kart_item.product_id.name}}</td>
+                    <td>{{kart_item.product_id.amount}}</td>
+                    <td>1</td>
+                    <td><img src="{{kart_item.product_id.image.url}}" alt="" style="width:100px;"></td>
+                </tr>
+                {% empty %}
+                NO products........
+                {% endfor %}
+                
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
